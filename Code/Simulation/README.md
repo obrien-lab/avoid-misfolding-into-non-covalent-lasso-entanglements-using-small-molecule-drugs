@@ -63,4 +63,17 @@ python run_MD.py <psffile> <ncrstfile> <prmfile> <temp> <outname> <rand> <sim_ti
 ```
 
 ### 3. run_NVT_MD.py
-
+This code is used for the all-atom production simulations with the ligand present using Amber forcefield.
+Details of the methodology can be found in the paper.
+#### Syntax
+```bash
+python run_NVT_MD.py <prmtop_file> <ncrst_file> <temp> <ppn> <outname> <rand> <sim_time> [<use_gpu>]
+  <prmtop_file> Amber prmtop file for protein and ligand.
+  <ncrst_file> The ncrst file obtained from the end of the previous simulation that only contains coordinates and velocities of protein and ligand.
+  <temp> Temperature in Kelvin for the simulation.
+  <ppn> Number of CPU processors. If GPU is enabled, ppn will be automatically set as 1.
+  <outname> The prefix for the output file name.
+  <rand> Random seed.
+  <sim_time> Total simulation time in seconds.
+  [<use_gpu>] GPU device id. If use_gpu = -1 then use CPU platform. Default is -1.
+```
