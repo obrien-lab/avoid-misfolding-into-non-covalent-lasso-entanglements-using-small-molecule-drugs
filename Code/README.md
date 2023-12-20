@@ -77,3 +77,5 @@ python run_NVT_MD.py <prmtop_file> <ncrst_file> <temp> <ppn> <outname> <rand> <s
   <sim_time> Total simulation time in seconds.
   [<use_gpu>] GPU device id. If use_gpu = -1 then use CPU platform. Default is -1.
 ```
+
+### Please refer to [cg_simtk_protein_folding](https://github.com/obrien-lab/cg_simtk_protein_folding) for other necessary codes used for simulations and analyses.
