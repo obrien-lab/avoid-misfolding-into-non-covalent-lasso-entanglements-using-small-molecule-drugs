@@ -2,7 +2,7 @@
 
 ### 1. continuous_synthesis_v7.py
 This is an updated version of the previous code [`continuous_synthesis_v6.py`](https://github.com/obrien-lab/cg_simtk_protein_folding/blob/master/Continuous_synthesis_protocol/continuous_synthesis_v6.py) for the co-translational protein folding simulation. 
-In this version (v7), we incorporated the LJ 12-6 interactions between ligands and nascent chain. Details of the methodology can be found in the paper.
+In this version (v7), we incorporated the LJ 12-6 interactions between ligands and nascent chain. A spherical restraint was added on the ligand to avoid flying away. Details of the methodology can be found in the paper.
 
 #### Parameters in Control file
 The following parameters are new in this version. The description of other parameters can be found [here](https://github.com/obrien-lab/cg_simtk_protein_folding/wiki/continuous_synthesis_v6.py#3-parameters-in-control-file).
@@ -50,7 +50,11 @@ start_traj_id = 1
 
 Please refer to the [wiki page of previous version](https://github.com/obrien-lab/cg_simtk_protein_folding/wiki/continuous_synthesis_v6.py) for more information.
 
+### 2. run_MD.py
+This code is used for the post-translational protein folding simulation with ligand present. 
+We incorporated the LJ 12-6 interactions between ligands and protein. A center-of-mass constraint was added between ligand and protein to avoid them flying away. Details of the methodology can be found in the paper.
 
-### 2. post_trans_single_run_v2.py
+#### Syntax
+
 
 ### 3. run_NVT_MD.py
