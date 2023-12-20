@@ -51,10 +51,20 @@ start_traj_id = 1
 Please refer to the [wiki page of previous version](https://github.com/obrien-lab/cg_simtk_protein_folding/wiki/continuous_synthesis_v6.py) for more information.
 
 ### 2. run_MD.py
-This code is used for the post-translational protein folding simulation with ligand present. 
+This code is used for the post-translational protein folding simulation with ligand present on GPU. 
 We incorporated the LJ 12-6 interactions between ligands and protein. A center-of-mass constraint was added between ligand and protein to avoid them flying away. Details of the methodology can be found in the paper.
 
 #### Syntax
-
+```bash
+python run_MD.py <psffile> <ncrstfile> <prmfile> <temp> <outname> <rand> <sim_time>
+  <psffile> The psf file for your CG protein and ligand.
+  <ncrstfile> The ncrst file obtained from the end of the co-translational simulation that only contains coordinates and velocities of protein and ligand.
+  <prmfile> The OpenMM xml file of your force field.
+  <temp> Temperature in Kelvin for the simulation.
+  <outname> The prefix for the output file name.
+  <rand> Random seed.
+  <sim_time> Total simulation time in seconds.
+```
 
 ### 3. run_NVT_MD.py
+
