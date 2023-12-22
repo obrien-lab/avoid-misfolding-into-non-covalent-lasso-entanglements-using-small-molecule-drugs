@@ -1,0 +1,12 @@
+#PBS -N d1_0_6
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=2:gpus=1:shared:gc_t4
+#PBS -l qos=mgc_nih
+#PBS -l walltime=2:00:00:00
+#PBS -A mgc_nih
+
+cd $PBS_O_WORKDIR
+
+python ../setup/run_MD.py ../setup/protein_9VD_1.psf ../setup/protein_9VD_1.cor ./3cla_9VD.xml ../setup/prot_l213_dissociation_final.vel 310 6 3020645 > 6.out

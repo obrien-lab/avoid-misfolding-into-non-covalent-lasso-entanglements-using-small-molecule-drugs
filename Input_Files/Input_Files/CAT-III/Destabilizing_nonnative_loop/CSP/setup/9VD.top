@@ -1,0 +1,31 @@
+* This CHARMM .top file describes a CG model of a rigid 9-beads drug molecule
+*
+20 1
+! backbone masses
+MASS 1    C1       43.162222
+MASS 2    C2       43.162222
+MASS 3    C3       43.162222
+MASS 4    C4       43.162222
+MASS 5    C5       43.162222
+MASS 6    C6       43.162222
+MASS 7    C7       43.162222
+MASS 8    C8       43.162222
+MASS 9    C9       43.162222
+
+RESI 9VD    0.0
+GROUP
+ATOM C1 C1     0.0
+ATOM C2 C2     0.0
+ATOM C3 C3     0.0
+ATOM C4 C4     0.0
+ATOM C5 C5     0.0
+ATOM C6 C6     0.0
+ATOM C7 C7     0.0
+ATOM C8 C8     0.0
+ATOM C9 C9     0.0
+Bond C1 C2  C1 C3  C1 C4  C1 C5  C1 C6  C1 C7  C1 C8  C1 C9  C2 C3  C2 C4  C2 C5  C2 C6  C2 C7  C2 C8  C2 C9  C3 C4  C3 C5  C3 C6  C3 C7  C3 C8  C3 C9  C4 C5  C4 C6  C4 C7  C4 C8  C4 C9  C5 C6  C5 C7  C5 C8  C5 C9  C6 C7  C6 C8  C6 C9  C7 C8  C7 C9  C8 C9  
+Angle 
+DIHE 
+IMPH
+
+END

@@ -1,0 +1,13 @@
+minimization in MM with restraints
+ &cntrl
+  imin   = 1,
+  maxcyc = 5000,
+  ncyc   = 2500,
+  cut=10.0, 
+  ntb=1, 
+  ntc=1, 
+  ntf=1,
+  ntr=1,
+  restraintmask='@CA | (:LIG & !@H=)',
+  restraint_wt=100.0,
+ /

@@ -1,0 +1,12 @@
+#PBS -N d1_1.0_9
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=2:gpus=1:shared:gc_t4
+#PBS -l qos=mgc_nih
+#PBS -l walltime=2:00:00:00
+#PBS -A mgc_nih
+
+cd $PBS_O_WORKDIR
+
+continuous_synthesis_v7.py -f CSP_9-9.cntrl

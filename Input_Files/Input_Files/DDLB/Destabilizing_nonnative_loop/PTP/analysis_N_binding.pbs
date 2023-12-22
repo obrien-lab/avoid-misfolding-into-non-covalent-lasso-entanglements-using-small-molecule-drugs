@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+#PBS -N a_4c5c_db_nb
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=20:legacy
+#PBS -l walltime=2:00:00:00
+#PBS -A open
+
+import getopt, os, time, multiprocessing, random, math, traceback, io, sys
+import mdtraj as mdt
+import parmed as pmd
+import numpy as np
+
+def analysis(traj_dir, i):
+    global dist_cutoff
+    psf_file = os.popen('ls %s/*.psf'%traj_dir).readlines()[0].strip()
+    
+    struct = pmd.load_file(psf_file)
+    sel_protein_atm = []
+    sel_ligand_res = []
+    for atm in struct.atoms:
+        if atm.residue.segid == 'A':
+            sel_protein_atm.append(atm.idx)
+    for res in struct.residues:
+        if res.segid == 'LIG':
+            sel_ligand_res.append(res.idx)
+    
+    traj = traj_dir+'/traj_'+traj_dir+'_'+str(i+1)+'.dcd'
+    traj = mdt.load(traj, top=psf_file)
+    out = 'analysis/N_bind/traj_'+traj_dir+'_'+str(i+1)+'.dat'
+    f = open(out, 'w')
+    f.close()
+    for fi in range(traj.n_frames):
+        nc = 0
+        for s1 in sel_ligand_res:
+            tag = False
+            for a1 in struct.residues[s1].atoms:
+                for s2 in sel_protein_atm:
+                    d = np.sum((traj.xyz[fi,a1.idx,:]-traj.xyz[fi,s2,:])**2)**0.5
+                    if d <= dist_cutoff:
+                        nc += 1
+                        tag = True
+                        break
+                if tag:
+                    break
+        f = open(out, 'a')
+        f.write('%10d\n'%nc)
+        f.close()
+
+nproc = 20
+dist_cutoff = 0.8 # nm
+os.chdir(os.environ['PBS_O_WORKDIR'])
+
+traj_list = [str(i) for i in range(1,101)]
+
+os.system("mkdir -p analysis/N_bind")
+
+
+pool = multiprocessing.Pool(nproc)
+for traj_dir in traj_list:
+    for i in range(10):
+        pool.apply_async(analysis, (traj_dir, i))
+
+while True:
+    time.sleep(10)
+    if len(pool._cache) == 0:
+        print('All Done.')
+        break
+
+pool.close()
+pool.join()

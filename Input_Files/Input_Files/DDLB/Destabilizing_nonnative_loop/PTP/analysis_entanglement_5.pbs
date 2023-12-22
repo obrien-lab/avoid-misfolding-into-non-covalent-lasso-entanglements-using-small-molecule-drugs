@@ -1,0 +1,12 @@
+#PBS -N a_4c5c_5_g
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=20:gpus=1:shared:gc_t4
+#PBS -l qos=mgc_nih
+#PBS -l walltime=4:00:00:00
+#PBS -A mgc_nih
+
+cd $PBS_O_WORKDIR
+
+python ./calc_entanglement.py 20 1 100 9 10

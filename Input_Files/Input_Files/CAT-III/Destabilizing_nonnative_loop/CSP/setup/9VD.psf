@@ -1,0 +1,58 @@
+PSF CHEQ EXT XPLOR
+
+         1 !NTITLE
+
+
+         9 !NATOM
+         1 LIG      1        9VD      C1       C1       0.000000       43.1622           
+         2 LIG      1        9VD      C2       C2       0.000000       43.1622           
+         3 LIG      1        9VD      C3       C3       0.000000       43.1622           
+         4 LIG      1        9VD      C4       C4       0.000000       43.1622           
+         5 LIG      1        9VD      C5       C5       0.000000       43.1622           
+         6 LIG      1        9VD      C6       C6       0.000000       43.1622           
+         7 LIG      1        9VD      C7       C7       0.000000       43.1622           
+         8 LIG      1        9VD      C8       C8       0.000000       43.1622           
+         9 LIG      1        9VD      C9       C9       0.000000       43.1622           
+
+        36 !NBOND: bonds
+         1         2         1         3         1         4         1         5
+         1         6         1         7         1         8         1         9
+         2         3         2         4         2         5         2         6
+         2         7         2         8         2         9         3         4
+         3         5         3         6         3         7         3         8
+         3         9         4         5         4         6         4         7
+         4         8         4         9         5         6         5         7
+         5         8         5         9         6         7         6         8
+         6         9         7         8         7         9         8         9
+
+         0 !NTHETA: angles
+
+
+         0 !NPHI: dihedrals
+
+
+         0 !NIMPHI: impropers
+
+
+         0 !NDON: donors
+
+
+         0 !NACC: acceptors
+
+
+         0 !NNB
+
+         0         0         0         0         0         0         0         0
+         0
+
+         1         0 !NGRP NST2
+         0         1         0
+
+         1 !MOLNT
+         1         1         1         1         1         1         1         1
+         1
+
+         0         0 !NUMLP NUMLPH
+
+         0 !NCRTERM: cross-terms
+

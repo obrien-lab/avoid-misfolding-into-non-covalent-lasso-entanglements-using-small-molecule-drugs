@@ -1,0 +1,11 @@
+#PBS -N a_3cla_f2_g
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=20
+#PBS -l walltime=2:00:00:00
+#PBS -A open
+
+cd $PBS_O_WORKDIR
+
+python ./calc_entanglement.py 20 1 100 4 6

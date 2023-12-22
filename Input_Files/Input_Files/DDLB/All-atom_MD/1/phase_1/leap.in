@@ -1,0 +1,11 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+source leaprc.gaff
+loadamberprep ../17.prepi
+loadamberparams ../17.frcmod
+a = loadpdb ../struct_1_17_out_4.-7.1.complex.pdb
+savepdb a complex.pdb
+solvatebox a TIP3PBOX 10.0
+addions a Na+ 0.0
+saveamberparm a complex.prmtop complex.inpcrd
+quit

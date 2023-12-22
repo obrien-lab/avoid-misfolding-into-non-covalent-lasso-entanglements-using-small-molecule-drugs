@@ -1,0 +1,18 @@
+heating in TIP3P water box
+ &cntrl
+  imin=0, ntx=1, irest=0,
+  nstlim=10000, dt=0.002,
+  tempi=0.0, temp0=310.0,
+  ntpr=100, ntwx=500,
+  cut=10.0, ntb=1, ntc=2, ntf=2,
+  ntp=0, ntt=3,
+  gamma_ln=2.0,
+  ntr=1,
+  restraint_wt=100.0,
+  restraintmask='@CA | (:LIG & !@H=)',
+  nmropt=1,
+  ig=-1,
+ /
+&wt type='TEMP0', istep1=0, istep2=9000, value1=0.0, value2=310.0 /
+&wt type='TEMP0', istep1=9001, istep2=10000, value1=310.0, value2=310.0 /
+&wt type='END' /

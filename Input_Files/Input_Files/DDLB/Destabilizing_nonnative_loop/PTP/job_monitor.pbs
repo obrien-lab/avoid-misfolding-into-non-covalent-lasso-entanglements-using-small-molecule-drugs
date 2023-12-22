@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N job_moni
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=2:gpus=1:shared:gc_t4
+#PBS -l qos=mgc_nih
+#PBS -l walltime=15:00:00:00
+#PBS -A mgc_nih
+
+cd $PBS_O_WORKDIR
+
+python job_monitor_pbs.py

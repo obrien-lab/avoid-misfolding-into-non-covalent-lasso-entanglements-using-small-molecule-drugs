@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+#PBS -N cat_d_7
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=2:gpus=1:shared:gc_t4
+#PBS -l qos=mgc_nih
+#PBS -l walltime=7:00:00:00
+#PBS -A mgc_nih
+
+import getopt, os, time, random, math, traceback, sys
+
+os.chdir(os.environ['PBS_O_WORKDIR'])
+
+rand = random.randint(10,1000000000)
+os.system('python ../../run_NVT_MD.py complex.prmtop equil_npt.ncrst 310 2 prod %d 4.25e8 0'%rand)

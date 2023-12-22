@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+#PBS -N d_8
+#PBS -r n
+#PBS -o $PBS_JOBID.out
+#PBS -e $PBS_JOBID.err
+#PBS -l nodes=1:ppn=2:gpus=1:shared:gc_t4
+#PBS -l qos=mgc_nih
+#PBS -l walltime=1:00:00:00
+#PBS -A mgc_nih
+
+import getopt, os, time, random, math, traceback, sys
+
+os.chdir(os.environ['PBS_O_WORKDIR'])
+
+i_attempt = 0
+while True:
+    out = os.popen('pmemd.cuda -O -i ../../amber_input/min1.in -p complex.prmtop -c complex.inpcrd -o min1.out -r min1.ncrst -ref complex.inpcrd').readlines()
+    out = ''.join(out)
+    if 'no CUDA-capable device is detected' in out:
+        print('Error occurred at attempt %d...'%(i_attempt+1))
+        print(out)
+        i_attempt += 1
+        continue
+    else:
+        print('cmd done')
+        break
+
+i_attempt = 0
+while True:
+    out = os.popen('pmemd.cuda -O -i ../../amber_input/min2.in -p complex.prmtop -c min1.ncrst -o min2.out -r min2.ncrst').readlines()
+    out = ''.join(out)
+    if 'no CUDA-capable device is detected' in out:
+        print('Error occurred at attempt %d...'%(i_attempt+1))
+        print(out)
+        i_attempt += 1
+        continue
+    else:
+        print('cmd done')
+        break
+
+i_attempt = 0
+while True:
+    out = os.popen('pmemd.cuda -O -i ../../amber_input/heat.in -p complex.prmtop -c min2.ncrst -o heat.out -x heat.nc -r heat.ncrst -ref min2.ncrst').readlines()
+    out = ''.join(out)
+    if 'no CUDA-capable device is detected' in out:
+        print('Error occurred at attempt %d...'%(i_attempt+1))
+        print(out)
+        i_attempt += 1
+        continue
+    else:
+        print('cmd done')
+        break
+
+os.system('mpirun -np 2 pmemd.MPI -O -i ../../amber_input/pre_equil_npt.in -p complex.prmtop -c heat.ncrst -o pre_equil_npt.out -x pre_equil_npt.nc -r pre_equil_npt.ncrst -ref heat.ncrst')
+
+i_attempt = 0
+while True:
+    out = os.popen('pmemd.cuda -O -i ../../amber_input/equil_npt.in -p complex.prmtop -c pre_equil_npt.ncrst -o equil_npt.out -x equil_npt.nc -r equil_npt.ncrst -ref pre_equil_npt.ncrst').readlines()
+    out = ''.join(out)
+    if 'no CUDA-capable device is detected' in out:
+        print('Error occurred at attempt %d...'%(i_attempt+1))
+        print(out)
+        i_attempt += 1
+        continue
+    else:
+        print('cmd done')
+        break
+
