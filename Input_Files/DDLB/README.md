@@ -1,4 +1,4 @@
-- `Stabilizing_native_entanglement`: Simulations for the ligand that destablizes the nonnative tertiary structure of the native loop region.
+- `Stabilizing_native_entanglement`: Simulations for the ligand that stablizes the native entangled region.
   - `Ep_scan`: Bindning affinity scan;
   - `CSP`: Co-translational folding simulations with CG ligand present;
   - `PTP`: Post-translational folding simulations with CG ligand present;
