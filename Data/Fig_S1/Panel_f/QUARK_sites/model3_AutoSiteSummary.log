@@ -1,0 +1,28 @@
+#################################################################
+# If you used AutoSite in your work, please cite:               #
+#                                                               #
+# Pradeep Anand Ravindranath and Michel F. Sanner               #
+#                                                               #
+# AutoSite: an automated approach for pseudoligands             #
+# prediction - From ligand binding sites identification to      #
+# predicting key ligand atoms                                   #
+#                                                               #
+# Bioinformatics (2016)                                         #
+#                                                               #
+# DOI: 10.1093/bioinformatics/btw367                            #
+#                                                               #
+# Please see http://adfr.scripps.edu/AutoDockFR/autosite.html   #
+# for more information                                          #
+#################################################################
+
+AutoSite v1.0.0 started on comp-ic-0017.acii.production.int.aci.ics.psu.edu a Linux-3.10.0-1160.83.1.el7.x86_64-x86_64-with-redhat-7.9-Maipo computer
+Date Wed Mar 15 12:04:27 2023
+computing maps ....
+clustering high affinity points ... 
+analysing 0 clusters ... 
+saving 0 clusters and associated feature points in folder model3
+
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |Feature Points
+number|       |points|gyration|per vol.|buriedness|v*b^1.5 | D | A | Other
+------+-------+------+--------+--------+----------+--------+---+---+------
+AutoSite identified and characterized 0 clusters in 1.06 seconds, i.e. 0 hours 00 minutes 01.059034 seconds 
