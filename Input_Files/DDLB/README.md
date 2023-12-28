@@ -1,0 +1,13 @@
+- `Stabilizing_native_entanglement`: Simulations for the ligand that stablizes the native entangled region.
+  - `Ep_scan`: Bindning affinity scan;
+  - `CSP`: Co-translational folding simulations with CG ligand present;
+  - `PTP`: Post-translational folding simulations with CG ligand present;
+- `Destabilizing_nonnative_loop`: Simulations for the ligand that destablizes the nonnative tertiary structure of the native loop region.
+  - `Ep_scan`: Bindning affinity scan;
+  - `CSP`: Co-translational folding simulations with CG ligand present;
+  - `PTP`: Post-translational folding simulations with CG ligand present;
+- `Virtual_screening`: Virtual screening for the FDA-approved drugs;
+  - `native_structure`: Virtual screening for binding the native structure;
+  - `nonnative_structure`: Virtual screening for binding the nonnative tertiary structure;
+- `Blind_docking`: Blind docking simulations for candidate drugs;
+- `All-atom_MD`: All-atom simulations for candidate protein-drug complex structures;
